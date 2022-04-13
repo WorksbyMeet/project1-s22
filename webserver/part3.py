@@ -65,9 +65,14 @@ def login():
       passwords.append(i['password'])
     passwordssearch.close()
 
-    
+    def check(x,y):
+      for i in range(len(y)):
+        if x == y[i]:
+          return True
+        else: False
+
     if request.method == 'POST':
-        if request.form['username'] != userids[0] or request.form['password'] != passwords[0]:
+        if check(request.form['username'],userids) or check(request.form['password'],passwords) :
             error = 'Invalid Credentials. Please try again.'
         else:
             return redirect('/')
