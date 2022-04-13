@@ -78,7 +78,7 @@ def login():
             return redirect('/')
 
 
-    context = dict(data = [userids[0],passwords[0]])
+    context = dict(data = [userids[0],passwords[0],check(request.form['username'],userids)])
 
     return render_template('login.html', error=error,**context)
 
