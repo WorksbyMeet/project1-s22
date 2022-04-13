@@ -73,7 +73,7 @@ def login():
 
     if request.method == 'POST':
         if check(request.form['username'],request.form['password'],userids,passwords):
-          return redirect('/')
+          return redirect('/another')
         else:
           error = 'Invalid Credentials. Please try again.' 
 
@@ -101,6 +101,9 @@ def index():
 
   return render_template("index.html", **context)
 
+@app.route('/another')
+def another():
+  return render_template("anotherfile.html")
 
 if __name__ == "__main__":
   import click
