@@ -97,9 +97,8 @@ def index():
   for result in cursor:
     names.append(result['name'])  # can also be accessed using result[0]
   cursor.close()
-  engine.execute('DROP TABLE IF EXISTS test;')
  
-  context = dict(data = names)
+  context = dict(data = names[0])
 
   return render_template("index.html", **context)
 
