@@ -77,8 +77,6 @@ def login():
         else:
           error = 'Invalid Credentials. Please try again.' 
 
-    username_select = request.form['username']
-    
     context = dict(data = [userids[0],passwords[0]])
 
     return render_template('login.html', error=error,**context)
