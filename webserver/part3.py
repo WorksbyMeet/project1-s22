@@ -71,8 +71,9 @@ def login():
         else:
             return redirect(url_for('/index'))
 
-    
-    return render_template('login.html', error=error)
+    context = dict(data = passwords)
+
+    return render_template('login.html', error=error,**context)
 
 
 @app.route('/')
