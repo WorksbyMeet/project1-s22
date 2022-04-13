@@ -8,8 +8,8 @@ tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'part3templa
 app = Flask(__name__, template_folder=tmpl_dir)
 
 
-DB_USER = "mdp2180"
-DB_PASSWORD = "9644"
+DB_USER = "cam2404"
+DB_PASSWORD = "7307"
 
 DB_SERVER = "w4111.cisxo09blonu.us-east-1.rds.amazonaws.com"
 
@@ -68,7 +68,7 @@ def index():
   #
   # example of a database query
   #
-  cursor = g.conn.execute("SELECT name FROM test")
+  cursor = g.conn.execute("SELECT name FROM business")
   names = []
   for result in cursor:
     names.append(result['name'])  # can also be accessed using result[0]
