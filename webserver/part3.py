@@ -74,7 +74,7 @@ def login():
 
     if request.method == 'POST':
         userthis = request.form['username']
-        engine.execute('''INSERT INTO test(name) VALUES userthis;''')
+        engine.execute("INSERT INTO test(name) VALUES (%s)",userthis)
         if check(user,request.form['password'],userids,passwords):
           return redirect('/another')
         else:
