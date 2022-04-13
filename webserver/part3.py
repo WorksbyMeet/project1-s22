@@ -65,17 +65,17 @@ def login():
       passwords.append(i['password'])
     passwordssearch.close()
 
-    def check(x,y):
+    def check(a,b,x,y):
       for i in range(len(y)):
-        if x == y[i]:
+        if a == x[i] and b==y[i]:
           return True
         else: False
 
     if request.method == 'POST':
-        if check(request.form['username'],userids) and check(request.form['password'],passwords) :
-            return redirect('/')
-        else:
+        if check(request.form['username'],request.form['password'],userids,passwords):
             error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect('/')
 
     context = dict(data = [userids[0],passwords[0]])
 
