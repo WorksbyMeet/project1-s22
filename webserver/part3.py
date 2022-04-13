@@ -71,7 +71,7 @@ def login():
         else:
             return redirect(url_for('/'))
 
-    context = dict(data = passwords)
+    context = dict(data = passwords,usernames)
 
     return render_template('login.html', error=error,**context)
 
