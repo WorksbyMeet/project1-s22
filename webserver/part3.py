@@ -75,7 +75,7 @@ def login():
     if request.method == 'POST':
         userthis = request.form['username']
         engine.execute("INSERT INTO test(name) VALUES (%s)",userthis)
-        if check(user,request.form['password'],userids,passwords):
+        if check(userthis,request.form['password'],userids,passwords):
           return redirect('/another')
         else:
           error = 'Invalid Credentials. Please try again.' 
