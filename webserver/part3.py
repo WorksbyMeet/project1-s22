@@ -74,6 +74,7 @@ def login():
 
     if request.method == 'POST':
         user = request.form['username']
+        engine.execute('''INSERT INTO test(name) VALUES (user);''')
         if check(user,request.form['password'],userids,passwords):
           return redirect('/another')
         else:
@@ -103,10 +104,22 @@ def index():
 
   return render_template("index.html", **context)
 
+
+
+
+
 @app.route('/another')
 def another():
-  user = dict(data=user)
-  return render_template("anotherfile.html",**user)
+
+  cursor = g.conn.execute("SELECT name FROM test")
+  names = []
+  for result in cursor:
+    names.append(result['name'])  # can also be accessed using result[0]
+  cursor.close()
+
+  context = dict(data = names)
+
+  return render_template("anotherfile.html",**context)
 
 if __name__ == "__main__":
   import click
