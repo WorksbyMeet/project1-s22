@@ -77,6 +77,8 @@ def login():
         else:
           error = 'Invalid Credentials. Please try again.' 
 
+    username_select = request.form['username']
+
     context = dict(data = [userids[0],passwords[0]])
 
     return render_template('login.html', error=error,**context)
@@ -103,7 +105,7 @@ def index():
 
 @app.route('/another')
 def another():
-  return render_template("anotherfile.html")
+  return username_select
 
 if __name__ == "__main__":
   import click
