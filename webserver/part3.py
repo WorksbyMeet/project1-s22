@@ -66,7 +66,7 @@ def login():
     passwordssearch.close()
 
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+        if request.form['username'] != userids or request.form['password'] != passwords:
             error = 'Invalid Credentials. Please try again.'
         else:
             return redirect('/')
