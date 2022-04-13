@@ -104,7 +104,7 @@ def index():
 
 @app.route('/another')
 def another():
-  return render_template("anotherfile.html")
+  return user
 
 if __name__ == "__main__":
   import click
