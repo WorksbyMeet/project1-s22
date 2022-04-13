@@ -72,7 +72,7 @@ def login():
             return redirect('/')
 
 
-    context = dict(data = [userids,passwords])
+    context = dict(data = userids)
 
     return render_template('login.html', error=error,**context)
 
