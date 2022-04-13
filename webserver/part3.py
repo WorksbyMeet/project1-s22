@@ -66,7 +66,7 @@ def login():
     return render_template('login.html', error=error)
 
 
-@app.route('/index')
+@app.route('/')
 def index():
 
   print (request.args)
