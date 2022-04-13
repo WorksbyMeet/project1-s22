@@ -66,13 +66,13 @@ def login():
     passwordssearch.close()
 
     if request.method == 'POST':
-        if request.form['username'] != userids[0][0] or request.form['password'] != passwords[0][0]:
+        if request.form['username'] != userids[0] or request.form['password'] != passwords[0]:
             error = 'Invalid Credentials. Please try again.'
         else:
             return redirect('/')
 
 
-    context = dict(data = [userids[0][0],passwords[0][0]])
+    context = dict(data = [userids[0],passwords[0]])
 
     return render_template('login.html', error=error,**context)
 
