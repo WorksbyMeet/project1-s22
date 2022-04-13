@@ -71,8 +71,7 @@ def login():
         else:
             return redirect(url_for('/index'))
 
-    print(usernames)
-    print(passwords)
+    
     return render_template('login.html', error=error)
 
 
