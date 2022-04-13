@@ -49,6 +49,7 @@ def teardown_request(exception):
   except Exception as e:
     pass
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
@@ -58,8 +59,14 @@ def login():
       userids.append(i['userid'])
     usernames.close()
 
+    passwordssearch = g.conn.execute("SELECT password FROM users")
+    passwords =[]
+    for i in passwordssearch:
+      passwords.append(i['password'])
+    passwordssearch.close()
+
     if request.method == 'POST':
-        if request.form['username'] != usernames or request.form['password'] != 'admin':
+        if request.form['username'] != usernames or request.form['password'] != passwords:
             error = 'Invalid Credentials. Please try again.'
         else:
             return redirect(url_for('/index'))
