@@ -69,7 +69,7 @@ def login():
         if request.form['username'] != usernames or request.form['password'] != passwords:
             error = 'Invalid Credentials. Please try again.'
         else:
-            return redirect(url_for('/index'))
+            return redirect(url_for('/'))
 
     context = dict(data = passwords)
 
