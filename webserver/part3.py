@@ -59,18 +59,18 @@ def login():
       userids.append(i['userid'])
     usernames.close()
 
-    passwordssearch = g.conn.exceute("SELECT password FROM users")
+    passwordssearch = g.conn.execute("SELECT password FROM users")
     passwords =[]
     for i in passwordssearch:
       passwords.append(i['password'])
     passwordssearch.close()
- 
+
+    
     if request.method == 'POST':
-      for i in range(len(usernames)):
-          if request.form['username'] != userids[i] or request.form['password'] != passwords[i]:
-              error = 'Invalid Credentials. Please try again.'
-          else:
-              return redirect('/')
+        if request.form['username'] != userids[0] or request.form['password'] != passwords[0]:
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect('/')
 
 
     context = dict(data = [userids[0],passwords[0]])
