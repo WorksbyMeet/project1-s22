@@ -66,10 +66,10 @@ def login():
     passwordssearch.close()
 
     if request.method == 'POST':
-        if request.form['username'] != userids or request.form['password'] != passwords:
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
             error = 'Invalid Credentials. Please try again.'
         else:
-            return redirect(url_for('/'))
+            return redirect(url_for('index'))
 
 
     context = dict(data = [userids,passwords])
