@@ -72,7 +72,7 @@ def login():
         else: False
 
     if request.method == 'POST':
-      user = request.form['username']
+        user = request.form['username']
         if check(user,request.form['password'],userids,passwords):
           return redirect('/another')
         else:
