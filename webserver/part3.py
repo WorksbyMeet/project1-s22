@@ -72,7 +72,8 @@ def login():
         else: False
 
     if request.method == 'POST':
-        if check(request.form['username'],request.form['password'],userids,passwords):
+      user = request.form['username']
+        if check(user,request.form['password'],userids,passwords):
           return redirect('/another')
         else:
           error = 'Invalid Credentials. Please try again.' 
