@@ -21,6 +21,7 @@ engine.execute('DROP TABLE IF EXISTS test;')
 engine.execute('''CREATE TABLE IF NOT EXISTS test (id serial,name text);''')
 engine.execute('''INSERT INTO test(name) VALUES ('grace hopper'), ('alan turing'), ('ada lovelace');''')
 
+user = ''
 
 @app.before_request
 def before_request():
