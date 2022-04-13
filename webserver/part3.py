@@ -59,7 +59,7 @@ def login():
       userids.append(i['userid'])
     usernames.close()
 
-    passwordssearch = g.conn.exeute("SELECT password FROM users")
+    passwordssearch = g.conn.exceute("SELECT password FROM users")
     passwords =[]
     for i in passwordssearch:
       passwords.append(i['password'])
