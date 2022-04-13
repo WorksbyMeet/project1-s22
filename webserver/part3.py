@@ -70,6 +70,9 @@ def login():
             error = 'Invalid Credentials. Please try again.'
         else:
             return redirect(url_for('/index'))
+
+    print(usernames)
+    print(passwords)
     return render_template('login.html', error=error)
 
 
