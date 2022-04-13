@@ -72,10 +72,10 @@ def login():
         else: False
 
     if request.method == 'POST':
-        if check(request.form['username'],userids) or check(request.form['password'],passwords) :
-            error = 'Invalid Credentials. Please try again.'
-        else:
+        if check(request.form['username'],userids) and check(request.form['password'],passwords) :
             return redirect('/')
+        else:
+            error = 'Invalid Credentials. Please try again.'
 
     context = dict(data = [userids[0],passwords[0]])
 
