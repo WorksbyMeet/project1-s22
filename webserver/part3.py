@@ -172,10 +172,18 @@ def site():
 
   category = request.args.get('type')
 
+  description_unique = g.conn.execute('SELECT description FROM business WHERE userid = (%s)',category[-1])
+  description_u = []
+  for i in description_unique:
+    description_u.append(i[0])  # can also be accessed using result[0]
+  description_unique.close()
+
+
+
   context = dict(data = category)
 
 
-  return render_template("site.html",**context,tmp=category)
+  return render_template("site.html",**context,des=description_u)
 
 
 
