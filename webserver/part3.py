@@ -133,7 +133,7 @@ def another():
 
   count = count +1 
 
-  context = dict(data = balance)
+  context = dict(data = balance[0])
 
 
 
