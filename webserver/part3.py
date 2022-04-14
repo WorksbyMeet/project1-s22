@@ -194,7 +194,7 @@ def site():
   street_u = []
   for i in street_unique:
     street_u.append(i[0])  # can also be accessed using result[0]
-  street.close()
+  street_unique.close()
 
 
 
