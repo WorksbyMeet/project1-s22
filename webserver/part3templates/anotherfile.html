@@ -7,8 +7,6 @@
 
   <div>
     {% for n in sites %}
-    <a href="{{url_for('site', type=n)}}">
-    <div>{{n}}</div>
-    </a>
+      <li><a href="{{url_for('site', type=n)}}">{{n}}</a></li>
     {% endfor %}
   </div>
