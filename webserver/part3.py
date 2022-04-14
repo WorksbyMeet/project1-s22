@@ -155,7 +155,7 @@ def site():
   cursor = g.conn.execute("SELECT sites FROM carry")
   names = []
   for result in cursor:
-    names.append(result['name'])  # can also be accessed using result[0]
+    names.append(result['sites'])  # can also be accessed using result[0]
   cursor.close()
 
 
