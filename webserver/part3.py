@@ -151,13 +151,12 @@ def another():
 
   context = dict(data = balance[0])
 
+  zipped=zip(sites,description)
 
   engine.execute("INSERT INTO carry(sites) VALUES (%s)",category)
 
 
-  return render_template("anotherfile.html",**context,sites=sites,des=description)
-
-
+  return render_template("anotherfile.html",**context,both=zipped)
 
 
 

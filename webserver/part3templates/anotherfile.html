@@ -1,10 +1,8 @@
 <h2 style="font-family: Arial">Your balance is ${{data}}</h2>
 
   <div>
-    {% for n in sites %}
-    {% for x in des %}
+    {% for n,j in both %}
       <li><a href="{{url_for('site', type = n)}}">{{n}}</a></li>
-      <p>{{x}}</p>
-    {% endfor %}
+      <p>{{j}}</p>
     {% endfor %}
   </div>
