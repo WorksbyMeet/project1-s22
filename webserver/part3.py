@@ -193,7 +193,7 @@ def site():
   street_unique = g.conn.execute('SELECT number,street,city,state,zip from (SELECT * FROM address INNER JOIN has ON has.aid=address.aid) as t Where name = (%s)',category)
   street_u = []
   for i in street_unique:
-    street_u.append(i[0])  # can also be accessed using result[0]
+    street_u.append(i)  # can also be accessed using result[0]
   street_unique.close()
 
 
