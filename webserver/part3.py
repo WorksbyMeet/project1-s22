@@ -122,7 +122,7 @@ def another():
     names.append(result['name'])  # can also be accessed using result[0]
   cursor.close()
 
-  balanceuser = g.conn.execute('SELECT balance FROM users')
+  balanceuser = g.conn.execute('SELECT balance FROM users WHERE userid = (%s)',names[0])
   balance = []
   for i in balanceuser:
     balance.append(i['balance'])  # can also be accessed using result[0]
