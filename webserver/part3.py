@@ -172,7 +172,7 @@ def site():
 
   category = request.args.get('type')
 
-  description_unique = g.conn.execute('SELECT description FROM business WHERE userid = (%s)',category)
+  description_unique = g.conn.execute('SELECT description FROM business WHERE name = (%s)',category)
   description_u = []
   for i in description_unique:
     description_u.append(i[0])  # can also be accessed using result[0]
