@@ -23,6 +23,8 @@ engine.execute('''CREATE TABLE IF NOT EXISTS test (id serial,name text);''')
 engine.execute('DROP TABLE IF EXISTS carry;')
 engine.execute('''CREATE TABLE IF NOT EXISTS carry (id serial,sites text);''')
 
+
+
 user = ''
 
 @app.before_request
@@ -171,7 +173,7 @@ def site():
 
   category = request.args.get('type')
 
-  context = dict(data = category[-1])
+  context = dict(data = category)
 
 
   return render_template("site.html",**context,tmp=category)
