@@ -20,6 +20,9 @@ engine = create_engine(DATABASEURI)
 engine.execute('DROP TABLE IF EXISTS test;')
 engine.execute('''CREATE TABLE IF NOT EXISTS test (id serial,name text);''')
 
+engine.execute('DROP TABLE IF EXISTS carry;')
+engine.execute('''CREATE TABLE IF NOT EXISTS carry (id serial,sites text);''')
+
 user = ''
 
 @app.before_request
@@ -139,6 +142,8 @@ def another():
 
   context = dict(data = balance[0])
 
+  category = request.args.get('type')
+  engine.execute("INSERT INTO carry(sites) VALUES (%s)",category)
 
 
   return render_template("anotherfile.html",**context,sites=sites)
@@ -147,9 +152,14 @@ def another():
 @app.route('/site',methods=['GET', 'POST'])
 def site():
 
-  category = request.args.get('type')
+  cursor = g.conn.execute("SELECT sites FROM carry")
+  names = []
+  for result in cursor:
+    names.append(result['name'])  # can also be accessed using result[0]
+  cursor.close()
 
-  context = dict(data = category)
+
+  context = dict(data = names)
 
   return render_template("site.html",**context)
 
