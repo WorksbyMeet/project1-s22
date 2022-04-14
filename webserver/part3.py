@@ -164,8 +164,10 @@ def site():
     names.append(result[0])  # can also be accessed using result[0]
   cursor.close()
 
+  category = request.args.get('type')
 
-  context = dict(data = names)
+  context = dict(data = category)
+
 
   return render_template("site.html",**context)
 
