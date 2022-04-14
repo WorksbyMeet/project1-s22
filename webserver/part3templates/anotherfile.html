@@ -2,6 +2,8 @@
 
   <div>
     {% for n in sites %}
+    {% for x in des %}
       <li><a href="{{url_for('site', type = n)}}">{{n}}</a></li>
+      <p>{{x}}</p>
     {% endfor %}
   </div>
