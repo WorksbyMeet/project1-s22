@@ -50,6 +50,9 @@ def teardown_request(exception):
     pass
 
 
+
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
@@ -84,6 +87,10 @@ def login():
     return render_template('login.html', error=error,**context)
 
 
+
+
+
+
 @app.route('/')
 def index():
 
@@ -115,9 +122,22 @@ def another():
     names.append(result['name'])  # can also be accessed using result[0]
   cursor.close()
 
-  context = dict(data = names)
+  balanceuser = g.conn.execute('SELECT balance FROM users WHERE userid=(%s)',names[0])
+  balance = []
+  for i in balanceuser:
+    balance.append(result['name'])  # can also be accessed using result[0]
+  balance.close()
+
+  context = dict(data = balance)
 
   return render_template("anotherfile.html",**context)
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
   import click
