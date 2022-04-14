@@ -122,7 +122,15 @@ def another():
     names.append(result['name'])  # can also be accessed using result[0]
   cursor.close()
 
-  context = dict(data = names[0])
+  balanceuser = g.conn.execute('SELECT balance FROM users WHERE userid=(%s)',names[0])
+  balance = []
+  for i in balanceuser:
+    balance.append(result['balance'])  # can also be accessed using result[0]
+  balance.close()
+
+  context = dict(data = balance[0])
+
+
 
   return render_template("anotherfile.html",**context)
 
