@@ -125,7 +125,7 @@ def another():
   cursor.close()
 
 
-  balanceuser = g.conn.execute('SELECT balance FROM users WHERE userid = (%s)',names[count])
+  balanceuser = g.conn.execute('SELECT balance FROM users WHERE userid = (%s)',names[-1])
   balance = []
   for i in balanceuser:
     balance.append(i[0])  # can also be accessed using result[0]
@@ -133,7 +133,7 @@ def another():
 
   count = count +1 
 
-  context = dict(data = [names,balance,count])
+  context = dict(data = balance)
 
 
 
