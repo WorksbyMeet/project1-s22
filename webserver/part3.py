@@ -135,7 +135,7 @@ def another():
   sites = []
   for result in sitesall:
     sites.append(result['name'])  # can also be accessed using result[0]
-  sites.close()
+  sitesall.close()
 
   
 
