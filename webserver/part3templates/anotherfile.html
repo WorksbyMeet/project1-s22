@@ -3,4 +3,9 @@
 
 <p><a href="/site">Go to the other page</a></p>
 
-<div>{{sites}}</div>
+
+  <div>
+    {% for n in sites %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div>
