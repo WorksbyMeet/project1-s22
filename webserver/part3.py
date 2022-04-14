@@ -98,7 +98,7 @@ def index():
     names.append(result['name'])  # can also be accessed using result[0]
   cursor.close()
  
-  context = dict(data = names[0])
+  context = dict(data = names[0][0])
 
   return render_template("index.html", **context)
 
