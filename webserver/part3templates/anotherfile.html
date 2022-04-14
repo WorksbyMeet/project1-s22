@@ -1,12 +1,10 @@
 <h>Your balance is </h>
 <div>${{data}}</div>
 
-<p><a href="/site">Go to the other page</a></p>
-
-<div>{{tmp}}</div>
+<div>{tmp}</div>
 
   <div>
     {% for n in sites %}
-      <li><a href="{{url_for('site', type=n)}}">{{n}}</a></li>
+      <li><a href="{{url_for('site', type = n)}}">{{n}}</a></li>
     {% endfor %}
   </div>
