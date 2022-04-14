@@ -125,7 +125,7 @@ def another():
   balanceuser = g.conn.execute('SELECT balance FROM users')
   balance = []
   for i in balanceuser:
-    balance.append(result['balance'])  # can also be accessed using result[0]
+    balance.append(result[0])  # can also be accessed using result[0]
   balanceuser.close()
 
   context = dict(data = balance)
