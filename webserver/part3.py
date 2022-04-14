@@ -140,6 +140,19 @@ def another():
   return render_template("anotherfile.html",**context)
 
 
+@app.route('/site')
+def site():
+
+  cursor = g.conn.execute("SELECT name FROM business")
+  names = []
+  for result in cursor:
+    names.append(result['name'])  # can also be accessed using result[0]
+  cursor.close()
+  
+  context = dict(data = names)
+
+  return render_template("site.html",**context)
+
 
 
 
