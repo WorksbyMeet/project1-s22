@@ -196,12 +196,18 @@ def site():
     street_u.append(i)  # can also be accessed using result[0]
   street_unique.close()
 
+  discount_unique = g.conn.execute('SELECT type from (SELECT * FROM offer INNER JOIN discount ON offer.did=discount.did) as t WHERE name =  (%s)',category)
+  discount_u = []
+  for i in discount_unique:
+    discount_u.append(i[0])  # can also be accessed using result[0]
+  discount_unique.close()
+
 
 
   context = dict(data = category)
 
 
-  return render_template("site.html",**context,des=description_u[0],street=street_u[0])
+  return render_template("site.html",**context,des=description_u[0],street=street_u[0],discount=discount_u)
 
 
 
