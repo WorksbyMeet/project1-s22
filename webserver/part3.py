@@ -161,6 +161,12 @@ def another():
 
 
 
+
+
+
+
+
+
 @app.route('/site',methods=['GET', 'POST'])
 def site():
 
@@ -180,10 +186,19 @@ def site():
 
 
 
+
   context = dict(data = category)
 
 
   return render_template("site.html",**context,des=description_u[0])
+
+
+
+
+
+
+
+
 
 
 
