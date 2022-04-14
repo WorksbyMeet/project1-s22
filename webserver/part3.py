@@ -128,7 +128,7 @@ def another():
     balance.append(i['balance'])  # can also be accessed using result[0]
   balanceuser.close()
 
-  context = dict(data = balance)
+  context = dict(data = names)
 
 
 
