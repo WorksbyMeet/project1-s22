@@ -140,6 +140,11 @@ def another():
     sites.append(result['name'])  # can also be accessed using result[0]
   sitesall.close()
 
+  descriptions = g.conn.execute("SELECT description FROM business")
+  description = []
+  for result in descriptions:
+    description.append(result['description'])  # can also be accessed using result[0]
+  description.close()
   
 
   context = dict(data = balance[0])
@@ -148,7 +153,7 @@ def another():
   engine.execute("INSERT INTO carry(sites) VALUES (%s)",category)
 
 
-  return render_template("anotherfile.html",**context,sites=sites,tmp=category)
+  return render_template("anotherfile.html",**context,sites=sites,des=description)
 
 
 
@@ -169,7 +174,7 @@ def site():
   context = dict(data = category)
 
 
-  return render_template("site.html",**context)
+  return render_template("site.html",**context,tmp=category)
 
 
 
