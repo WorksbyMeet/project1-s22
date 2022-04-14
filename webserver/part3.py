@@ -144,7 +144,7 @@ def another():
   description = []
   for result in descriptions:
     description.append(result['description'])  # can also be accessed using result[0]
-  description.close()
+  descriptions.close()
   
 
   context = dict(data = balance[0])
