@@ -183,7 +183,7 @@ def site():
   context = dict(data = category)
 
 
-  return render_template("site.html",**context,des=description_u)
+  return render_template("site.html",**context,des=description_u[0])
 
 
 
