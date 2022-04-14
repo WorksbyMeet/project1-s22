@@ -119,6 +119,8 @@ def index():
 @app.route('/another')
 def another():
 
+  category = request.args.get('type')
+  
   cursor = g.conn.execute("SELECT name FROM test")
   names = []
   for result in cursor:
@@ -142,11 +144,15 @@ def another():
 
   context = dict(data = balance[0])
 
-  category = request.args.get('type')
+
   engine.execute("INSERT INTO carry(sites) VALUES (%s)",category)
 
 
   return render_template("anotherfile.html",**context,sites=sites,tmp=category)
+
+
+
+
 
 
 @app.route('/site',methods=['GET', 'POST'])
