@@ -116,19 +116,23 @@ def index():
 @app.route('/another')
 def another():
 
+  count = 0
+
   cursor = g.conn.execute("SELECT name FROM test")
   names = []
   for result in cursor:
     names.append(result['name'])  # can also be accessed using result[0]
   cursor.close()
 
-  j= len(names)
-  balanceuser = g.conn.execute('SELECT balance FROM users WHERE userid = (%s)',names[j])
+
+  balanceuser = g.conn.execute('SELECT balance FROM users WHERE userid = (%s)',names[count])
   balance = []
   for i in balanceuser:
     balance.append(i['balance'])  # can also be accessed using result[0]
   balanceuser.close()
 
+  count = count +1 
+  
   context = dict(data = balance)
 
 
