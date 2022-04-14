@@ -116,8 +116,6 @@ def index():
 @app.route('/another')
 def another():
 
-  
-
   cursor = g.conn.execute("SELECT name FROM test")
   names = []
   for result in cursor:
@@ -146,16 +144,12 @@ def another():
   return render_template("anotherfile.html",**context,sites=sites)
 
 
-@app.route('/site')
+@app.route('/site',methods=['GET', 'POST'])
 def site():
 
-  cursor = g.conn.execute("SELECT name FROM business")
-  names = []
-  for result in cursor:
-    names.append(result['name'])  # can also be accessed using result[0]
-  cursor.close()
-  
-  context = dict(data = names)
+  category = request.args.get('type')
+
+  context = dict(data = category)
 
   return render_template("site.html",**context)
 
