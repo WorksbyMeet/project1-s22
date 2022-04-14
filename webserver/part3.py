@@ -171,7 +171,7 @@ def site():
 
   category = request.args.get('type')
 
-  context = dict(data = category)
+  context = dict(data = category[-1])
 
 
   return render_template("site.html",**context,tmp=category)
