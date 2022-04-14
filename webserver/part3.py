@@ -132,8 +132,8 @@ def another():
   balanceuser.close()
 
   count = count +1 
-  
-  context = dict(data = balance)
+
+  context = dict(data = [names,balance,count])
 
 
 
