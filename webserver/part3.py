@@ -146,7 +146,7 @@ def another():
   engine.execute("INSERT INTO carry(sites) VALUES (%s)",category)
 
 
-  return render_template("anotherfile.html",**context,sites=sites)
+  return render_template("anotherfile.html",**context,sites=sites,tmp=category)
 
 
 @app.route('/site',methods=['GET', 'POST'])
@@ -155,7 +155,7 @@ def site():
   cursor = g.conn.execute("SELECT sites FROM carry")
   names = []
   for result in cursor:
-    names.append(result['sites'])  # can also be accessed using result[0]
+    names.append(result[0])  # can also be accessed using result[0]
   cursor.close()
 
 
