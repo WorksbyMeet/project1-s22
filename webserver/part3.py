@@ -107,7 +107,7 @@ def index():
  
   context = dict(data = names)
 
-  return render_template("index.html", **context)
+  return render_template("index.html", **context,)
 
 
 
@@ -116,7 +116,7 @@ def index():
 @app.route('/another')
 def another():
 
-  count = 0
+  
 
   cursor = g.conn.execute("SELECT name FROM test")
   names = []
@@ -131,13 +131,19 @@ def another():
     balance.append(i[0])  # can also be accessed using result[0]
   balanceuser.close()
 
-  count = count +1 
+  sitesall = g.conn.execute("SELECT name FROM business")
+  sites = []
+  for result in sitesall:
+    sites.append(result['name'])  # can also be accessed using result[0]
+  sites.close()
+
+  
 
   context = dict(data = balance[0])
 
 
 
-  return render_template("anotherfile.html",**context)
+  return render_template("anotherfile.html",**context,sites=sites)
 
 
 @app.route('/site')
