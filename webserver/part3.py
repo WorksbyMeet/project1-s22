@@ -116,11 +116,11 @@ def index():
 
 
 
-@app.route('/another')
+@app.route('/another',methods=['GET', 'POST'])
 def another():
 
   category = request.args.get('type')
-  
+
   cursor = g.conn.execute("SELECT name FROM test")
   names = []
   for result in cursor:
