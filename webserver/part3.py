@@ -259,7 +259,7 @@ def site():
   context = dict(data = category)
 
 
-  return render_template("site.html",**context,des=description_u[0],assigned=assigned_u[0],street=street_u[0],discount=discount_u[0],sell=sell_u[0],sellsdescription=sellsdescription_u[0],cost=cost_u[0],type=type_u[0],discountamount=discountamount_u[0])
+  return render_template("site.html",**context,des=description_u[0],assigned=assigned_u[0],street=street_u[0],discount=discount_u[0],sell=sell_u[0],sellsdescription=sellsdescription_u[0],cost=cost_u[0],type=type_u[0],discountamount=discountamount_u)
 
 
 
