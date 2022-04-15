@@ -157,6 +157,12 @@ def another():
   for result in descriptions:
     description.append(result['description'])  # can also be accessed using result[0]
   descriptions.close()
+
+  previous = g.conn.execute("SELECT ti.name FROM (SELECT t1.userid,t1.iid FROM buys t1 JOIN users t2 ON (t1.userid=t2.userid)) as k JOIN item ti on (ti.iid=k.iid) Where k.userid =(%s)",names[-1])
+  previous_u = []
+  for result in previous:
+    previous_u.append(result[0])  # can also be accessed using result[0]
+  previous.close()
   
 
   context = dict(data = balance[0])
@@ -166,7 +172,7 @@ def another():
   engine.execute("INSERT INTO carry(sites) VALUES (%s)",category)
 
 
-  return render_template("anotherfile.html",**context,both=zipped,bought=bought_u,name=names[-1])
+  return render_template("anotherfile.html",**context,both=zipped,bought=bought_u,previous=previous)
 
 
 
