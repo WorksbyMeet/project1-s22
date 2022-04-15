@@ -230,7 +230,7 @@ def site():
     sellsdescription_u.append(i[0])  # can also be accessed using result[0]
   sellsdescription_unique.close()
 
-  discountamount_unique = g.conn.execute('SELECT t2.amount FROM item t1 JOIN apply t2 ON (t1.iid=t2.iid) where t1.name =(%s)',sellsdescription_u)
+  discountamount_unique = g.conn.execute('SELECT t2.amount FROM item t1 JOIN apply t2 ON (t1.iid=t2.iid) where t1.name =(%s)',sell_u[0])
   discountamount_u = []
   for i in discountamount_unique:
     discountamount_u.append(i[0])  # can also be accessed using result[0]
