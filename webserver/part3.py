@@ -125,6 +125,7 @@ def another():
 
   category = request.args.get('type')
 
+
   cursor = g.conn.execute("SELECT name FROM test")
   names = []
   for result in cursor:
@@ -165,7 +166,7 @@ def another():
   engine.execute("INSERT INTO carry(sites) VALUES (%s)",category)
 
 
-  return render_template("anotherfile.html",**context,both=zipped,bought=bought_u)
+  return render_template("anotherfile.html",**context,both=zipped,bought=bought_u,name=names[-1])
 
 
 
