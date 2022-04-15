@@ -23,6 +23,8 @@ engine.execute('''CREATE TABLE IF NOT EXISTS test (id serial,name text);''')
 engine.execute('DROP TABLE IF EXISTS carry;')
 engine.execute('''CREATE TABLE IF NOT EXISTS carry (id serial,sites text);''')
 
+engine.execute('DROP TABLE IF EXISTS userthi;')
+engine.execute('''CREATE TABLE IF NOT EXISTS userthis (id serial,sites text);''')
 
 
 user = ''
@@ -130,6 +132,13 @@ def another():
   cursor.close()
 
 
+  bought_user = g.conn.execute('SELECT balance FROM users WHERE userid = (%s)',names[-1])
+  bought_u = []
+  for i in bought_user:
+    bought_u.append(i[0])  # can also be accessed using result[0]
+  bought_user.close()
+
+
   balanceuser = g.conn.execute('SELECT balance FROM users WHERE userid = (%s)',names[-1])
   balance = []
   for i in balanceuser:
@@ -156,7 +165,7 @@ def another():
   engine.execute("INSERT INTO carry(sites) VALUES (%s)",category)
 
 
-  return render_template("anotherfile.html",**context,both=zipped)
+  return render_template("anotherfile.html",**context,both=zipped,bought=bought_u)
 
 
 
