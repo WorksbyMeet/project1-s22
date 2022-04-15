@@ -172,7 +172,7 @@ def another():
   engine.execute("INSERT INTO carry(sites) VALUES (%s)",category)
 
 
-  return render_template("anotherfile.html",**context,both=zipped,bought=bought_u,previous=previous_u)
+  return render_template("anotherfile.html",**context,both=zipped,bought=bought_u,previous=previous_u[0])
 
 
 
