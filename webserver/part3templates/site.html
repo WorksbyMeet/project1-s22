@@ -3,10 +3,14 @@
 <p style="font-family: Arial">
 <div> Category: {{assigned}}</div> </p>
 <p></p>
-<div>Description: {{des}}</div>
+<p style="font-family: Arial">
+<div>Description: {{des}}</div></p>
 <p> </p> 
-<div>Address: {% for n in street %}{{n}} {% endfor %}</div>
+<p style="font-family: Arial">
+<div>Address: {% for n in street %}{{n}} {% endfor %}</div></p>
 <p> </p> 
+<p style="font-family: Arial">
 <div>Sells : {{sell}} with cost ${{cost}} with the following discount offered through {{type}}</div>
 <div>Total Discount: ${{discountamount}}</div>
 <div>Selling Description: {{sellsdescription}}</div>
+</p>
