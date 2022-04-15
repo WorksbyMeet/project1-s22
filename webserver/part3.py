@@ -214,11 +214,17 @@ def site():
     sellsdescription_u.append(i[0])  # can also be accessed using result[0]
   sellsdescription_unique.close()
 
+  cost_unique = g.conn.execute('SELECT t2.cost FROM business t1 JOIN sells t2 ON (t1.bid=t2.bid) WHERE t1.name = (%s)',category)
+  cost_u = []
+  for i in cost_unique:
+    cost_u.append(i[0])  # can also be accessed using result[0]
+  cost_unique.close()
+
 
   context = dict(data = category)
 
 
-  return render_template("site.html",**context,des=description_u[0],street=street_u[0],discount=discount_u[0],sell=sell_u[0],sellsdescription=sellsdescription_u[0])
+  return render_template("site.html",**context,des=description_u[0],street=street_u[0],discount=discount_u[0],sell=sell_u[0],sellsdescription=sellsdescription_u[0],cost=cost_u[0])
 
 
 
