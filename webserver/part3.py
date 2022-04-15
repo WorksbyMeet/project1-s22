@@ -208,7 +208,7 @@ def site():
     sell_u.append(i[0])  # can also be accessed using result[0]
   sells_unique.close()
 
-  sellsdescription_unique = g.conn.execute('SELECT t2.name FROM business t1 JOIN sells t2 ON (t1.bid=t2.bid) WHERE t1.name = (%s)',category)
+  sellsdescription_unique = g.conn.execute('SELECT t2.description FROM business t1 JOIN sells t2 ON (t1.bid=t2.bid) WHERE t1.name = (%s)',category)
   sellsdescription_u = []
   for i in sellsdescription_unique:
     sellsdescription_u.append(i[0])  # can also be accessed using result[0]
