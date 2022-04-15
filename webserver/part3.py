@@ -220,11 +220,18 @@ def site():
     cost_u.append(i[0])  # can also be accessed using result[0]
   cost_unique.close()
 
+  type_unique = g.conn.execute('SELECT t1.type FROM Discount t1 JOIN offer t2 ON (t1.did=t2.did) where t2.name = (%s)',category)
+  type_u = []
+  for i in type_unique:
+    type_u.append(i[0])  # can also be accessed using result[0]
+  type_unique.close()
+
+
 
   context = dict(data = category)
 
 
-  return render_template("site.html",**context,des=description_u[0],street=street_u[0],discount=discount_u[0],sell=sell_u[0],sellsdescription=sellsdescription_u[0],cost=cost_u[0])
+  return render_template("site.html",**context,des=description_u[0],street=street_u[0],discount=discount_u[0],sell=sell_u[0],sellsdescription=sellsdescription_u[0],cost=cost_u[0],type=type_u[0])
 
 
 
