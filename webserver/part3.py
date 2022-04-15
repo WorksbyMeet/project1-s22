@@ -11,7 +11,7 @@ app = Flask(__name__, template_folder=tmpl_dir)
 DB_USER = "cam2404"
 DB_PASSWORD = "7307"
 
-DB_SERVER = "w4111.cisxo09blonu.us-east-1.rds.amazonaws.com"
+DB_SERVER = "w4111project1part2db.cisxo09blonu.us-east-1.rds.amazonaws.com/proj1part2"
 
 DATABASEURI = "postgresql://"+DB_USER+":"+DB_PASSWORD+"@"+DB_SERVER+"/proj1part2"
 
