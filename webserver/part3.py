@@ -226,7 +226,7 @@ def site():
     type_u.append(i[0])  # can also be accessed using result[0]
   type_unique.close()
 
-  assigned_unique = g.conn.execute('SELECT t2.name FROM Business t1 JOIN assigned t2 ON (t1.bid=t2.bid) where t1.name = (%s)',category)
+  assigned_unique = g.conn.execute('SELECT uno FROM (SELECT * FROM category t1 JOIN assigned t2 ON (t1.name=t2.name)) as k(uno) JOIN Business L1 ON (L1.bid=k.bid) where L1.name = (%s)',category)
   assigned_u = []
   for i in assigned_unique:
     assigned_u.append(i[0])  # can also be accessed using result[0]
