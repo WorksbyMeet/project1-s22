@@ -226,12 +226,18 @@ def site():
     type_u.append(i[0])  # can also be accessed using result[0]
   type_unique.close()
 
+  assigned_unique = g.conn.execute('SELECT t2.name FROM Business t1 JOIN assigned t2 ON (t1.bid=t2.bid) where t1.name = (%s)',category)
+  assigned_u = []
+  for i in assigned_unique:
+    assigned_u.append(i[0])  # can also be accessed using result[0]
+  assigned_unique.close()
+
 
 
   context = dict(data = category)
 
 
-  return render_template("site.html",**context,des=description_u[0],street=street_u[0],discount=discount_u[0],sell=sell_u[0],sellsdescription=sellsdescription_u[0],cost=cost_u[0],type=type_u[0])
+  return render_template("site.html",**context,des=description_u[0],assigned=assigned_u[0],street=street_u[0],discount=discount_u[0],sell=sell_u[0],sellsdescription=sellsdescription_u[0],cost=cost_u[0],type=type_u[0])
 
 
 
